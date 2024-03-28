@@ -1,0 +1,215 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* font-weights */
+    --font-regular: 500;
+    --font-bold: 700;
+    --font-extrabold: 800;
+
+    /* font-size (paragraphys) */
+    --font-size-paragraphs: 18px;
+
+    /* colors */
+    --light-red: hsl(0, 100%, 67%);
+    --orange-yellow: hsl(39, 100%, 56%);
+    --green-teal: hsl(166, 100%, 37%);
+    --cobalt-blue: hsl(234, 85%, 45%);
+
+    /* Neutral Colors */
+    --white: hsl(0, 0%, 100%);
+    --pale-blue: hsl(221, 100%, 96%);
+
+    --light-lavender: hsl(241, 100%, 89%);
+    --dark-gray-blue: hsl(224, 30%, 27%);
+
+
+    /* Gradients */
+    --background-results: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    --light-slate-blue: hsl(252, 100%, 67%);
+    --light-royal-blue: hsl(241, 81%, 54%);
+
+    --background-circle: linear-gradient(to bottom, hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+    --Violet-blue: hsla(256, 72%, 46%, 1);
+    --Persian-blue: hsla(241, 72%, 46%, 0);
+}
+
+* {
+    font-family: "Hanken Grotesk", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+body {
+    background-color: var(--pale-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: var(--white);
+    width: 700px;
+    border-radius: 25px;
+
+    display: flex;
+}
+
+.results-container {
+    width: 50%;
+    background: var(--background-results);
+    padding: 40px;
+    text-align: center;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results-container > h2 {
+    color: var(--light-lavender);
+    margin-bottom: 20px;
+}
+
+.circle {
+    background: var(--background-circle);
+    padding: 20px;
+    border-radius: 50%;
+    text-align: center;
+    width: 170px;
+    height: 170px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.circle h4 {
+    font-size: 3.5rem;
+    width: 100px;
+    color: var(--white);
+    align-self: center;
+}
+
+.circle span {
+    color: var(--light-lavender);
+    font-weight: var(--font-bold);
+    opacity: 0.6;
+}
+
+.text-result h3 {
+    font-size: 1.7rem;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.text-result p {
+    font-size: var(--font-size-paragraphs);
+    color: var(--light-lavender);
+}
+
+.summary-container {
+    padding: 30px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.summary-container h2 {
+    margin-bottom: 20px;
+    color: var(--dark-gray-blue);
+}
+
+.summary-list {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.summary-list b {
+    font-weight: var(--font-extrabold);
+    opacity: 0.4;
+}
+
+.summary-list p {
+    font-weight: var(--font-extrabold);
+    color: var(--dark-gray-blue);
+}
+
+#reaction-container {
+    background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+#memory-container {
+    background-color: hsla(39, 100%, 56%, 0.1);
+}
+
+#verbal-container {
+    background-color: hsla(166, 100%, 37%, 0.1);
+}
+
+#visual-container {
+    background-color: hsla(234, 85%, 45%, 0.1);
+}
+
+#reaction-container,
+#memory-container,
+#verbal-container,
+#visual-container {
+    padding: 15px;
+    border-radius: 7px;
+}
+
+#reaction-color,
+#memory-color,
+#verbal-color,
+#visual-color {
+    display: flex;
+    align-items: center;
+    width: 88px;
+    justify-content: space-between;
+    font-weight: var(--font-bold);
+}
+
+#reaction-color {
+    color: var(--light-red);
+}
+
+#memory-color {
+    color: var(--orange-yellow);
+}
+
+#verbal-color {
+    color: var(--green-teal);
+    width: 75px;
+}
+
+#visual-color {
+    color: var(--cobalt-blue);
+    width: 71px;
+}
+
+#btn-continue {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    background-color: var(--dark-gray-blue);
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    border-radius: 35px;
+    font-weight: var(--font-bold);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.attribution {
+    font-size: var(--font-size-paragraphs);
+    margin-top: 35px;
+}

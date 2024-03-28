@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="estilos/style.css">
+  <link rel="stylesheet" href="estilos/media.css">
+
+  <title>Frontend Mentor | Results summary component</title>
+</head>
+
+<body>
+
+  <main class="container">
+    <section class="results-container">
+      <h2>Your Results</h2>
+
+      <div class="circle">
+        <h4>76</h4>
+        <span>of 100</span>
+      </div>
+
+      <div class="text-result">
+        <h3>Great</h3>
+        <p>you scored higher than 65% of the people who have taken these tests.</p>
+      </div>
+    </section>
+
+    <section class="summary-container">
+      <h2>Summary</h2>
+
+      <div>
+        <div class="summary-list" id="reaction-container">
+          <div id="reaction-color">
+            <i class='bx bx-time-five'></i>
+            <span>Reaction</span>
+          </div>
+
+          <p>80 <b>/ 100</b></p>
+        </div>
+
+        <div class="summary-list" id="memory-container">
+          <div id="memory-color">
+            <i class='bx bx-brain'></i>
+            <span>Memory</span>
+          </div>
+
+          <p>92 <b>/ 100</b></p>
+        </div>
+
+        <div class="summary-list" id="verbal-container">
+          <div id="verbal-color">
+            <i class='bx bx-message-rounded-minus'></i>
+            <span>Verbal</span>
+          </div>
+
+          <p>61 <b>/ 100</b></p>
+        </div>
+
+        <div class="summary-list" id="visual-container">
+          <div id="visual-color">
+            <i class='bx bx-show'></i>
+            <span>Visual</span>
+          </div>
+
+          <p>72 <b>/ 100</b></p>
+        </div>
+      </div>
+
+      <input id="btn-continue" type="button" value="Continue">
+    </section>
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/douglass154">Douglas Silva</a>.
+  </div>
+</body>
+
+</html>
