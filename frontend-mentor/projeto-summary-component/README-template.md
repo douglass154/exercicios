@@ -99,7 +99,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Author
 
-- Website - [Douglas Silva](https://www.your-site.com)
+- Website - [Your name here](https://www.your-site.com)
 - Frontend Mentor - [@douglass154](https://www.frontendmentor.io/profile/douglass154)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
 
