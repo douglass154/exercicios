@@ -1,0 +1,149 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+:root {
+    /* Cores Primárias */
+    --violeta: hsl(263, 55%, 52%);
+    --dark-grayish: hsl(217, 19%, 35%);
+    --dark-blackish: hsl(219, 29%, 14%);
+    --white: hsl(0, 0%, 100%);
+
+    /* Cores Neutras */
+    --light-gray: hsl(0, 0%, 81%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+
+    /* Fontes */
+    --font-family: "Barlow Semi Condensed", sans-serif;;
+    --font-size: 0.8rem;
+    --font-weight-medium: 500;
+    --font-weight-semiBold: 600;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    background-color: var(--light-grayish-blue);
+}
+
+.container {
+    width: 375px;
+    margin: 70px 20px;
+}
+
+.daniel-container,
+.jonathan-container,
+.jeanette-container,
+.patrick-container {
+    margin-bottom: 30px;
+}
+
+.daniel-container,
+.jonathan-container,
+.jeanette-container,
+.patrick-container,
+.kira-container {
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+}
+
+.daniel-container {
+    background-color: var(--violeta);
+}
+
+.daniel-container img {
+    border: 3px solid hsl(263, 100%, 70%);
+}
+
+.jonathan-container {
+    background-color: var(--dark-grayish);
+}
+
+.jeanette-container {
+    background-color: var(--white);
+}
+
+.patrick-container {
+    background-color: var(--dark-blackish);
+}
+
+.patrick-container img {
+    border: 3px solid var(--violeta);
+}
+
+.kira-container {
+    background-color: var(--white);
+}
+
+.nomes-container {
+    display: flex;
+    gap: 25px;
+}
+
+.nomes-container img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.nomes-container .nomes h3 {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-medium);
+}
+
+.nomes-container .nomes h4 {
+    font-size: 1rem;
+    color: var(--light-gray);
+    opacity: 0.6;
+    font-weight: var(--font-weight-medium);
+}
+
+.title {
+    color: var(--white);
+    margin: 20px 0;
+}
+
+.paragrafo {
+    font-size: var(--font-size);
+    font-weight: var(--font-weight-semiBold);
+    color: var(--light-gray);
+    opacity: 0.55;
+    line-height: 20px;
+}
+
+
+.jeanette-container .nomes h4,
+.kira-container .nomes h4 {
+    color: var(--dark-grayish);
+    opacity: 0.5;
+}
+
+.jeanette-container .title,
+.kira-container .title {
+    color: var(--dark-grayish);
+}
+
+.jeanette-container .paragrafo,
+.kira-container .paragrafo {
+    color: var(--dark-blackish);
+}
+
+
+.patrick-container .nomes {
+    color: var(--white);
+}
+
+.attribution {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
