@@ -37,9 +37,11 @@ body {
 }
 
 .container {
-    width: 375px;
+    width: 80%px;
     margin: 70px 20px;
 }
+
+
 
 .daniel-container,
 .jonathan-container,
@@ -86,28 +88,35 @@ body {
     background-color: var(--white);
 }
 
+
+
 .nomes-container {
     display: flex;
-    gap: 25px;
+    gap: 15px;
+
+    align-items: center;
 }
 
 .nomes-container img {
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
 }
 
 .nomes-container .nomes h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: var(--font-weight-medium);
+    width: 122px;
 }
 
 .nomes-container .nomes h4 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: var(--light-gray);
     opacity: 0.6;
     font-weight: var(--font-weight-medium);
 }
+
+
 
 .title {
     color: var(--white);
@@ -115,13 +124,16 @@ body {
 }
 
 .paragrafo {
-    font-size: var(--font-size);
+    font-size: 0.9rem;
     font-weight: var(--font-weight-semiBold);
     color: var(--light-gray);
     opacity: 0.55;
     line-height: 20px;
 }
 
+.daniel-container .nomes h3 {
+    color: var(--white);
+}
 
 .jeanette-container .nomes h4,
 .kira-container .nomes h4 {
@@ -137,6 +149,10 @@ body {
 .jeanette-container .paragrafo,
 .kira-container .paragrafo {
     color: var(--dark-blackish);
+}
+
+.jonathan-container .nomes h3 {
+    color: var(--white);
 }
 
 
