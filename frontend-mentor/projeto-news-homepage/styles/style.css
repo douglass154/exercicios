@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    /* Color */
+    --Soft-orange: hsl(35, 77%, 62%);
+    --Soft-red: hsl(5, 85%, 63%);
+
+    --Off-white: hsl(36, 100%, 99%);
+    --Grayish-blue: hsl(233, 8%, 79%);
+    --Dark-grayish-blue: hsl(236, 13%, 42%);
+    --Very-dark-blue: hsl(240, 100%, 5%);
+
+    /* Fonts */
+    --font-size-paragraph: 15px;
+
+    --fontw-400: 400;
+    --fontw-700: 700;
+    --fontw-800: 800;
+}
+
+
+.container {
+    width: 1440px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 60px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav .mobile-menu {
+    display: none;
+}
+
+header nav .nav-list {
+    list-style: none;
+
+    display: flex;
+    gap: 45px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: rgb(160, 159, 159);
+}
+
+header nav a:hover {
+    text-decoration: underline;
+    color: var(--Dark-grayish-blue);
+    transition: all 0.5s ease-out;
+}
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-rows: repeat(2, 300px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+
+.main-container {
+    grid-row: 1/3;
+    grid-column: 1/3;
+}
+
+.main-container img {
+    width: 100%;
+}
+
+.main-container .future-of-web {
+    display: flex;
+    margin-top: 25px;
+    gap: 180px;
+}
+
+.main-container .future-of-web h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 60px;
+}
+
+.main-container .future-of-web .read-more {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.main-container .future-of-web p {
+    font-size: var(--font-size-paragraph);
+    color: var(--Dark-grayish-blue);
+    margin-bottom: 25px;
+}
+
+.main-container .future-of-web button {
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--Soft-red);
+    color: #fff;
+    border: none;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+
+.main-container .future-of-web button:hover {
+    background-color: hsl(5, 83%, 54%);
+    transition-property: background-color cursor;
+    transition: 0.5s ease-out;
+}
+
+
+
+.container-articles {
+    grid-row: 1/3;
+    grid-column: 3/4;
+
+    background-color: var(--Very-dark-blue);
+    padding: 0 30px;
+    color: white;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.container-articles h2 {
+    font-size: 2.8rem;
+    color: var(--Soft-orange);
+}
+
+.container-articles h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.container-articles p {
+    color: var(--Grayish-blue);
+}
+
+.container-articles hr {
+    opacity: 0.4;
+}
+
+
+
+.container-asides {
+    grid-row: 3/4;
+    grid-column: 1/4;
+    height: 130px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.container-asides .asides {
+    display: flex;
+    gap: 20px;
+}
+
+.container-asides .asides .aside-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.container-asides .asides span {
+    color: var(--Grayish-blue);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.container-asides .asides h5 {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--Very-dark-blue);
+}
+
+.container-asides .asides p {
+    color: var(--Dark-grayish-blue);
+}

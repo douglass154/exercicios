@@ -1,0 +1,261 @@
+@media screen and (max-width: 1510px) {
+    .container {
+        width: 1110px;
+    }
+    
+    .grid-container {
+        grid-template-rows: repeat(3, 230px);
+    }
+
+    .main-container .future-of-web {
+        gap: 60px;
+    }
+
+    .main-container .future-of-web h1 {
+        font-size: 2.8rem;
+        line-height: 50px;
+    }
+
+    .main-container .future-of-web .read-more {
+        width: 600px;
+    }
+
+
+
+    .container-articles {
+        padding: 30px;
+        height: 480px;
+    }
+
+    .container-articles h2 {
+        font-size: 2.4rem;
+    }
+
+    .container-articles h3 {
+        font-size: 1.2rem;
+    }
+
+    .container-asides {
+        height: 140px;
+    }
+
+    .container-asides .asides .aside-texts {
+        gap: 5px;
+    }
+}
+
+
+@media screen and (max-width: 1150px) {
+    .container {
+        width: 950px;
+    }
+
+    .grid-container {
+        grid-template-rows: repeat(2, 260px) 400px 160px;
+    }
+
+
+
+    .main-container {
+        grid-column: 1/4;
+        align-items: flex-end;
+    }
+
+
+
+    .container-articles {
+        grid-row: 3/4;
+        grid-column: 1/4;
+
+        height: 400px;
+    }
+
+
+
+    .container-asides {
+        height: 150px;
+        grid-row: 4/5;
+        gap: 10px;
+    }
+
+    .container-asides .asides {
+        gap: 12px;
+    }
+
+    .container-asides .aside-texts p {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    html {
+        height: 240vh;
+    }
+
+    body {
+        margin: 30px 15px;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+    }
+    
+    header {
+        position: sticky;
+        top: 0;
+
+        background-color: #fff;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        margin-bottom: 50px;
+    }
+
+    /* header nav a{
+        display: none;
+    } */
+
+    header nav .mobile-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    header nav .mobile-menu div{
+        display: block;
+        width: 42px;
+        height: 4px;
+        background: #000000;
+        margin: 5px;
+        transition: 0.4s;
+    }
+
+    header nav .mobile-menu.active .line-1 {
+        transform: rotate(-45deg) translate(-5px, 8px);
+    }
+    
+    header nav .mobile-menu.active .line-2 {
+        opacity: 0;
+    }
+    
+    header nav .mobile-menu.active .line-3 {
+        transform: rotate(45deg) translate(-5px, -8px);
+    }
+
+    header nav .nav-list {
+        position: absolute;
+        top: 7.4vh;
+        right: -15px;
+
+        height: 60vh;
+        width: 30vh;
+        background-color: #23232e;
+        padding: 20px;
+        font-size: 1.6rem;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        transform: translateX(110%);
+        transition: transform 0.4s ease-in;
+    }
+
+    header nav .nav-list.active {
+        transform: translateX(0);
+    }
+
+    header nav .nav-list li {
+        transform: translateX(210px);
+    }
+
+
+
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+    }
+
+
+
+    .main-container img {
+        width: 100%;
+        height: 320px;
+    }
+
+    .main-container .future-of-web {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .main-container .future-of-web h1 {
+        font-size: 3.2rem;
+        line-height: 70px;
+        align-self: baseline;
+    }
+
+    .main-container .future-of-web .read-more {
+        width: 100%;
+    }
+
+    .main-container .future-of-web .read-more p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        word-wrap: normal;
+    }
+
+    .main-container .future-of-web .read-more button {
+        height: 60px;
+    }
+
+
+
+    .container-articles {
+        height: 650px;
+        padding: 25px;
+    }
+
+    .container-articles h2 {
+        font-size: 2.8rem;
+    }
+
+    .container-articles article h3 {
+        font-size: 1.7rem;
+    }
+
+    .container-articles article p {
+        font-size: 1.15rem;
+    }
+
+
+
+    .container-asides {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        margin-bottom: 50px;
+    }
+
+    .container-asides .asides {
+        gap: 30px;
+    }
+
+    .container-asides .asides img {
+        width: 120px;
+    }
+
+    .container-asides .asides .aside-texts span {
+        font-size: 2.4rem;
+    }
+
+    .container-asides .asides .aside-texts h5 {
+        font-size: 1.5rem;
+    }
+
+    .container-asides .asides .aside-texts p {
+        font-size: 1.2rem;
+    }
+}
