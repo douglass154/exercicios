@@ -95,7 +95,7 @@
 
     body {
         margin: 30px 15px;
-        overflow-x: hidden;
+        overflow: hidden;
     }
 
     .container {
