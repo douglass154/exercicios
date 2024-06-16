@@ -1,0 +1,78 @@
+
+.container {
+    display: none;
+    background-color: var(--dark-blue);
+    padding: 20px;
+    width: 230px;
+    border-radius: 10px;
+    display: block;
+}
+
+.container img {
+    background-color: hsl(225, 11%, 22%);
+    width: 30px;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.container h1 {
+    font-size: 1.3rem;
+    color: var(--white);
+    margin: 8px 0;
+}
+
+.container p {
+    font-size: 13px;
+    color: var(--light-gray);
+    margin-bottom: 15px;
+}
+
+.container .rating {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.container .rating button {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: hsl(225, 11%, 22%);
+    color: var(--light-gray);
+    font-size: 0.7rem;
+    font-weight: var(--weight-700);
+    margin-bottom: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;    
+    transition: all 0.3s ease-out;
+}
+
+.container .submit {
+    width: 100%;
+    border-radius: 40px;
+    padding: 8px;
+    border: none;
+    background-color: var(--orange);
+    color: var(--very-dark-blue);
+    font-size: 0.65rem;
+    font-weight: var(--weight-700);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.container button:hover {
+    background-color: var(--white);
+    color: var(--very-dark-blue);
+}
+
+.container .rating button.active {
+    background-color: var(--orange);
+    color: var(--very-dark-blue);
+}
