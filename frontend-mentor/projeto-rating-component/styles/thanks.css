@@ -1,0 +1,39 @@
+
+.thanks {
+    display: none;
+    background-color: var(--dark-blue);
+    padding: 25px;
+    width: 220px;
+    border-radius: 10px;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.thanks img {
+    width: 90px;
+    margin-bottom: 15px;
+}
+
+.thanks h3 {
+    font-size: 0.6rem;
+    text-align: center;
+    width: 120px;
+    background-color: hsl(225, 11%, 22%);
+    color: var(--orange);
+    border-radius: 50px;
+    padding: 3px;
+    margin-bottom: 15px;
+}
+
+.thanks h1 {
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.thanks p {
+    font-size: 0.47rem;
+    color: var(--light-gray);
+    text-align: center;
+}
