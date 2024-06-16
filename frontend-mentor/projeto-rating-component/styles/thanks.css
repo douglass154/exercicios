@@ -3,7 +3,11 @@
     display: none;
     background-color: var(--dark-blue);
     padding: 25px;
+<<<<<<< HEAD
     width: 230px;
+=======
+    width: 220px;
+>>>>>>> 19a3742d1bf5d77e1d9f853d78c4e76fcba84ad1
     border-radius: 10px;
 
     flex-direction: column;
@@ -11,14 +15,24 @@
 }
 
 .thanks img {
+<<<<<<< HEAD
     width: 110px;
+=======
+    width: 90px;
+>>>>>>> 19a3742d1bf5d77e1d9f853d78c4e76fcba84ad1
     margin-bottom: 15px;
 }
 
 .thanks h3 {
+<<<<<<< HEAD
     font-size: 0.7rem;
     text-align: center;
     width: 140px;
+=======
+    font-size: 0.6rem;
+    text-align: center;
+    width: 120px;
+>>>>>>> 19a3742d1bf5d77e1d9f853d78c4e76fcba84ad1
     background-color: hsl(225, 11%, 22%);
     color: var(--orange);
     border-radius: 50px;
@@ -27,13 +41,21 @@
 }
 
 .thanks h1 {
+<<<<<<< HEAD
     font-size: 1.3rem;
+=======
+    font-size: 1rem;
+>>>>>>> 19a3742d1bf5d77e1d9f853d78c4e76fcba84ad1
     color: var(--white);
     margin-bottom: 5px;
 }
 
 .thanks p {
+<<<<<<< HEAD
     font-size: 13px;
+=======
+    font-size: 0.47rem;
+>>>>>>> 19a3742d1bf5d77e1d9f853d78c4e76fcba84ad1
     color: var(--light-gray);
     text-align: center;
 }
