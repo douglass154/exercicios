@@ -22,8 +22,9 @@
 }
 
 body {
-    background: url(../assets/images/background-pattern-desktop.svg);
+    /* background: url(../assets/images/background-pattern-desktop.svg);
     background-repeat: no-repeat;
+    background-size: contain; */
     background-color: var(--light-pink);
     font-family: var(--font-family);
 
@@ -32,6 +33,15 @@ body {
     justify-content: center;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+}
+
+body .img-bg {
+    min-width: 100vw;
+    position: absolute;
+    z-index: -1;
+
+    top: 0;
 }
 
 .container {
