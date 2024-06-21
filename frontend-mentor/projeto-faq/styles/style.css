@@ -97,13 +97,20 @@ body {
 }
 
 hr {
-    margin-bottom: 20px;
     opacity: 0.4;
 }
 
-.p1-hide,
-.p2-hide,
-.p3-hide,
-.p4-hide {
+.paragraph {
     display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: 
+        opacity 0.5s,
+        transform 0.5s ease;
+}
+
+.paragraph.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
