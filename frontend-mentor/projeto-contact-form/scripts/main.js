@@ -78,7 +78,7 @@ btnSubmit.addEventListener('click', event => {
       modal.classList.add('active');
 
       btnModal.addEventListener('click', () => {
-         fields.forEach((field, index) => {
+         fields.forEach((field) => {
             field.value = '';
             field.checked = false;
             message.value = '';
