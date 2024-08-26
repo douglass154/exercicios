@@ -4,7 +4,8 @@
    padding: 30px 40px;
    border-radius: 10px;
    box-shadow: 0 1px 4px var(--green-600);
-   width: 750px;
+   width: 90%;
+   max-width: 750px;
 }
 
 h1 {
@@ -73,6 +74,7 @@ h1 {
 
 .textarea-container label textarea {
    resize: none;
+   height: 170px;
 }
 
 .input-container .label-checkbox {

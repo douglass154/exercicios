@@ -1,0 +1,58 @@
+
+@media (max-width: 45rem) {
+   h1 {
+      margin-bottom: 25px;
+   }
+   
+   .mult-inputs {
+      flex-direction: column;
+      gap: 0;
+   }
+
+   .input-container,
+   .query-type,
+   .textarea-container {
+      margin-bottom: 10px;
+   }
+}
+
+@media (max-width: 35rem) {
+   .container {
+      padding: 30px 25px;
+      margin: 30px 0;
+   }
+
+   h1 {
+      font-size: 1.8rem;
+   }
+
+   .textarea-container label {
+      margin-bottom: 20px;
+   }
+
+   .textarea-container label textarea {
+      height: 220px;
+   }
+
+   .label-checkbox #input-checkbox {
+      width: 24px;
+   }
+
+   .label-checkbox span {
+      font-size: 0.9rem;
+   }
+
+   .content-modal-container {
+      width: 90%;
+      height: 350px;
+   }
+
+   .content-modal-container h2 {
+      font-size: 1.7rem;
+   }
+
+   .content-modal-container p {
+      font-size: 1.2rem;
+      margin: 15px;
+   }
+}
