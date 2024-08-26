@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- displays site properly based on user's device -->
+
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="./assets/images/favicon-32x32.png"
+      />
+      <link rel="stylesheet" href="styles/default.css" />
+      <link rel="stylesheet" href="styles/style.css" />
+
+      <title>Frontend Mentor | Contact form</title>
+   </head>
+   <body>
+      <main class="container">
+         <h1>Contact Us</h1>
+         <form action="#" method="post">
+            <div class="mult-inputs">
+               <div class="input-container">
+                  <label>
+                     <span>First Name *</span>
+                     <input type="text" name="first-name" required>
+                  </label>
+                  <p class="error">This field is required</p>
+               </div>
+
+               <div class="input-container">
+                  <label>
+                     <span>Last Name *</span>
+                     <input type="text" name="last-name" required>
+                  </label>
+                  <p class="error">This field is required</p>
+               </div>
+            </div>
+            
+            <div class="input-container">
+               <label>
+                  <span>Email Address *</span>
+                  <input type="email" name="email" required>
+               </label>
+               <p class="error">This field is required</p>
+               <p class="error">Please enter a valid email address</p>
+            </div>
+            
+            <div class="query-type">
+               <span>Query Type *</span>
+               <div class="mult-inputs">
+                  <div class="input-container">
+                     <label>
+                        <input type="radio" name="select">
+                        <span>General Enquiry</span>
+                     </label>
+                  </div>
+                  <div class="input-container">
+                     <label>
+                        <input type="radio" name="select">
+                        <span>Support Request</span>
+                     </label>
+                  </div>
+               </div>
+               <p class="error">Please select a query type</p>
+            </div>
+
+            <div class="textarea-container">
+               <label>
+                  <span>Message *</span>
+                  <textarea name="textarea" cols="30" rows="5" required></textarea>
+               </label>
+               <p class="error">This field is required</p>
+            </div>
+            
+            <div class="input-container">
+               <label class="label-checkbox">
+                  <input type="checkbox" name="checkbox" id="input-checkbox">
+                  <span>I consent to being contacted by the team *</span>
+               </label>
+               <p class="error">To submit this form, please consent to being contacted Submit</p>
+            </div>
+
+            <input type="submit" value="Submit" id="btn-submit">
+         </form>
+      </main>
+
+      <div class="modal">
+         <div class="content-modal-container">
+            <h2>Message Sent!</h2>
+            <p>Thanks for completing the form. <br> We'll be in touch soon!</p>
+            <button id="btn-modal">Thanks</button>
+         </div>
+      </div>
+
+      <script src="scripts/main.js"></script>
+   </body>
+</html>
