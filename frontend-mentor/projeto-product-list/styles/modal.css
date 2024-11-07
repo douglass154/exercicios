@@ -1,0 +1,156 @@
+
+.modal-container {
+   display: none;
+}
+
+.modal-container.active {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.541);
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.modal {
+   background-color: white;
+   padding: 40px;
+   width: 650px;
+   border-radius: 10px;
+}
+
+.modal img {
+   margin-bottom: 25px;
+}
+
+.modal h2 {
+   font-size: 2.4rem;
+   color: var(--rose-900);
+}
+
+.modal p {
+   color: var(--rose-400);
+   font-size: 0.9rem;
+   font-weight: var(--weight-600);
+   margin-bottom: 30px;
+}
+
+.chosen-dishes-container {
+   background-color: var(--rose-100);
+   padding: 25px;
+   border-radius: 4px;
+
+   display: flex;
+   flex-direction: column;
+}
+
+.chosen-dishes-container .chosen-dishes {
+   display: flex;
+   align-self: self-start;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: start;
+   gap: 20px;
+
+   width: 100%;
+}
+
+.chosen-dishes-container .chosen-dishes hr {
+   border: 1px solid var(--rose-300);
+   opacity: 0.2;
+   width: 100%;
+}
+
+.chosen-dishes-container .chosen-dishes .modal-dishe-infos {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 15px;
+
+   width: 100%;
+}
+
+.chosen-dishes-container .chosen-dishes .modal-dishe-infos .dishe-infos {
+   display: flex;
+   gap: 15px;
+}
+
+.chosen-dishes-container img {
+   width: 60px;
+   border-radius: 4px;
+   margin: 0;
+}
+
+.chosen-dishes-container .chosen-dishe-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   gap: 10px !important;
+}
+
+.chosen-dishes-container .chosen-dishe-info div {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+}
+
+.chosen-dishes-container .chosen-dishe-info h4 {
+   align-self: baseline;
+   font-weight: var(--weight-600);
+}
+
+.chosen-dishes-container .chosen-dishe-info div .quantity {
+   color: var(--red);
+   font-weight: var(--weight-600);
+   font-size: 1.1rem;
+}
+
+.chosen-dishes-container .chosen-dishe-info div .chosen-dishe-price {
+   color: var(--rose-500);
+}
+
+.chosen-dishes-container .chosen-dishe-total-price {
+   color: var(--rose-900);
+   font-weight: var(--weight-700);
+}
+
+.chosen-dishes-container .order-total-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+   margin-top: 30px;
+}
+
+.chosen-dishes-container .order-total-container p {
+   font-size: 0.85rem;
+   color: var(--rose-500);
+   margin: 0;
+}
+
+.chosen-dishes-container .order-total-container .order-total {
+   font-size: 1.4rem;
+   font-weight: var(--weight-700);
+   color: var(--rose-900);
+}
+
+.modal .btn-start-new-order {
+   margin-top: 30px;
+   padding: 15px 0;
+   width: 100%;
+   border: none;
+   border-radius: 50px;
+   background-color: var(--red);
+   color: white;
+   font-size: 1rem;
+   font-weight: var(--weight-600);
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+.modal .btn-start-new-order:hover {
+   background-color: hsl(14, 91%, 34%);
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="./assets/images/favicon-32x32.png"
+      />
+
+      <link rel="stylesheet" href="./styles/reset.css">
+      <link rel="stylesheet" href="./styles/style.css">
+      <link rel="stylesheet" href="./styles/cart.css">
+      <link rel="stylesheet" href="./styles/modal.css">
+      <link rel="stylesheet" href="./styles/medias.css">
+
+      <title>Frontend Mentor | Product list with cart</title>
+   </head>
+   <body>
+      <main class="container">
+         <h1>Desserts</h1>
+         <div class="cards-container">
+            <!-- dishes inserted through javascript -->
+         </div>
+      </main>
+
+      <section class="cart-container">
+         <h2>Your Cart (<span class="items-quantity">0</span>)</h2>
+         <div class="illustration-note">
+            <img src="./assets/images/illustration-empty-cart.svg">
+            <p>Your added items will appear here</p>
+         </div>
+
+         <div class="added-items-cart-container">
+            <div class="items-added">
+               <!-- dishes inserted through javascript -->
+            </div>
+
+            <div class="order-total-container">
+               <p>Order Total</p>
+               <span class="order-total">$0.00</span>
+            </div>
+
+            <div class="type-delivery">
+               <img src="./assets/images/icon-carbon-neutral.svg">
+               <p>This is a <strong>carbon-neutral</strong> delivery</p>
+            </div>
+
+            <button class="btn-confirm-order">Confirm Order</button>
+         </div>
+      </section>
+
+      <div class="modal-container">
+         <div class="modal">
+            <img src="./assets/images/icon-order-confirmed.svg">
+            <h2>Order Confirmed</h2>
+            <p>We hope you enjoy your food!</p>
+            <div class="chosen-dishes-container">
+               <div class="chosen-dishes">
+                  <!-- chosen dishes inserted through javascript -->
+               </div>
+
+               <div class="order-total-container">
+                  <p>Order Total</p>
+                  <span class="order-total">$0.00</span>
+               </div>
+            </div>
+            <button class="btn-start-new-order">Start New Order</button>
+         </div>
+      </div>
+
+      <script src="./js/script.js"></script>
+   </body>
+</html>
