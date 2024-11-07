@@ -157,12 +157,18 @@ const addItemToCart = () => {
    cartContainer.classList.toggle('active', existingProduct);
 };
 
-const addCartQuantity = increment => {
+const addCartQuantity = (increment, quantity) => {
    if (increment) {
       totalQuantity += 1;
       cartItemsQuantity.textContent = totalQuantity;
    } else {
-      totalQuantity -= 1;
+      if(!quantity) {
+         totalQuantity -= 1;
+         cartItemsQuantity.textContent = totalQuantity;
+         return;
+      }
+      quantity -= 1;
+      totalQuantity -= quantity;
       cartItemsQuantity.textContent = totalQuantity;
    }
 };
@@ -218,6 +224,7 @@ cartItemsContainer.addEventListener('click', e => {
    const index = productsInCart.findIndex(product => product.name === name);
 
    if (index !== -1) productsInCart.splice(index, 1);
+   addCartQuantity(false);
    addItemToCart();
 
    const card = [...cardsContainer.children].find(
@@ -225,6 +232,9 @@ cartItemsContainer.addEventListener('click', e => {
    );
 
    if (card) {
+      const quantity = Number(card.querySelector('.div-quantity .quantity').textContent);
+      addCartQuantity(false, quantity);
+
       changeAppearanceOfTheAddToCartBtn(card, false);
       card.querySelector('.div-quantity .quantity').textContent = '1';
    }
