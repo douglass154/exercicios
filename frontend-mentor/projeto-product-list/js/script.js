@@ -212,6 +212,7 @@ const showModal = () => {
 
    chosenDishesTotalPrice.textContent = `$${modalTotal.toFixed(2)}`;
    modal.classList.add('active');
+   document.body.style.overflowY = 'hidden'
 };
 
 cartItemsContainer.addEventListener('click', e => {
@@ -245,6 +246,7 @@ btnConfirmOrder.addEventListener('click', () => showModal());
 btnStartNewOrder.addEventListener('click', () => {
    const modal = document.querySelector('.modal-container');
    modal.classList.remove('active');
+   document.body.style.overflowY = 'scroll'
 
    // reset cart
    productsInCart = [];
