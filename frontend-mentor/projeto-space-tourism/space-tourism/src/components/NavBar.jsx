@@ -64,7 +64,7 @@ const NavBar = ({ activeLink, setActiveLink }) => {
                >
                   <span className="text-white font-bold mr-2 max-lg:hidden">
                      00
-                  </span>{" "}
+                  </span>
                   Home
                </NavLink>
             </li>
@@ -80,7 +80,7 @@ const NavBar = ({ activeLink, setActiveLink }) => {
                >
                   <span className="text-white font-bold mr-2 max-lg:hidden">
                      01
-                  </span>{" "}
+                  </span>
                   Destination
                </NavLink>
             </li>
@@ -96,7 +96,7 @@ const NavBar = ({ activeLink, setActiveLink }) => {
                >
                   <span className="text-white font-bold mr-2 max-lg:hidden">
                      02
-                  </span>{" "}
+                  </span>
                   Crew
                </NavLink>
             </li>
@@ -112,7 +112,7 @@ const NavBar = ({ activeLink, setActiveLink }) => {
                >
                   <span className="text-white font-bold mr-2 max-lg:hidden">
                      03
-                  </span>{" "}
+                  </span>
                   Technology
                </NavLink>
             </li>
