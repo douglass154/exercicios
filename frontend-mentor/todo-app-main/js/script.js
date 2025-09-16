@@ -60,6 +60,8 @@ const changeBackgroundTheme = (theme) => {
 };
 
 const completeTask = (button, p = null) => {
+   // const localTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
    button.classList.toggle("checked");
    if (p !== null) p.classList.toggle("completed");
 
@@ -76,16 +78,16 @@ const completeTask = (button, p = null) => {
 const countItemsLeft = () => {
    const buttonCheck = todoList.querySelectorAll(".btn-check");
    let itemsLeft = 0;
-   
-   buttonCheck.forEach(button => {
-      if(!button.classList.contains("checked")) itemsLeft++;
+
+   buttonCheck.forEach((button) => {
+      if (!button.classList.contains("checked")) itemsLeft++;
    });
-   
+
    textItemsLeft.textContent = itemsLeft;
-}
+};
 
 const addActiveClass = (mode) => {
-   if(mode === "all") {
+   if (mode === "all") {
       getAllTasks.classList.add("active");
       getActiveTasks.classList.remove("active");
       getCompletedTasks.classList.remove("active");
@@ -98,25 +100,79 @@ const addActiveClass = (mode) => {
       getAllTasks.classList.remove("active");
       getActiveTasks.classList.remove("active");
    }
-}
+};
 
 const modifyTodoList = (mode) => {
    const prevTodos = todoList.querySelectorAll(".todo");
    let currentTodos = [];
-   addActiveClass(mode)
-   
-   prevTodos.forEach(todo => {
-      if(mode === "all") {
-         
-         
-      } else if(mode === "active") {
-         currentTodos.push
-        
-      } else {
+   addActiveClass(mode);
 
+   prevTodos.forEach((todo) => {
+      if (mode === "all") {
+      } else if (mode === "active") {
+         currentTodos.push;
+      } else {
       }
+   });
+};
+
+const addTaskToTodoList = (localTasks) => {
+   const newTaskObj = localTasks[localTasks.length - 1];
+
+   const newTask = document.createElement("div");
+   newTask.classList.add("todo");
+
+   newTask.innerHTML = `
+      <div>
+         <button id="${newTaskObj.id}" class="btn-check ${newTaskObj.isCompleted ? "checked" : ""}">
+            ${newTaskObj.isCompleted
+               ? '<img src="./images/icon-check.svg">'
+               : ""
+            }
+         </button>
+         <p class="${newTaskObj.isCompleted ? "completed" : ""}">
+            ${newTaskObj.task}
+         </p>
+      </div>
+      <img class="delete-task" src="./images/icon-cross.svg" alt="remove">
+   `;
+   
+   infosContainer.insertAdjacentElement("beforebegin", newTask);
+}
+
+const loadTasks = () => {
+   const localTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+   localTasks.forEach(localTask => {
+      const newTask = document.createElement("div");
+      newTask.classList.add("todo");
+
+      newTask.innerHTML = `
+         <div>
+            <button class="btn-check ${localTask.isCompleted ? "checked" : ""}">
+               ${localTask.isCompleted ? '<img src="./images/icon-check.svg">' : ""}
+            </button>
+            <p class="${localTask.isCompleted ? "completed" : ""}">
+               ${localTask.task}
+            </p>
+         </div>
+         <img class="delete-task" src="./images/icon-cross.svg" alt="remove">
+      `;
       
-   })
+      infosContainer.insertAdjacentElement("beforebegin", newTask);
+   });
+
+   countItemsLeft();
+}
+
+const updateTodoList = (method) => {
+   const localTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+   switch(method) {
+      case "add":
+         addTaskToTodoList(localTasks);
+         return;
+   }
 }
 
 // Events
@@ -135,60 +191,51 @@ inputButtonCheck.addEventListener("click", () =>
 );
 
 taskInput.addEventListener("keypress", (event) => {
-    const key = event.key;
-    if (key !== "Enter") return;
+   const key = event.key;
+   if (key !== "Enter") return;
 
-    const newTask = document.createElement("div");
-    newTask.classList.add("todo");
+   const isCompleted = inputButtonCheck.classList.contains("checked") ? true : false;
+   let localTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-    newTask.innerHTML = `
-        <div>
-            <button class="btn-check ${
-                inputButtonCheck.classList.contains("checked") ? "checked" : ""
-            }">
-                ${
-                    inputButtonCheck.classList.contains("checked")
-                        ? '<img src="./images/icon-check.svg">'
-                        : ""
-                }
-            </button>
-            <p class="${
-                inputButtonCheck.classList.contains("checked")
-                    ? "completed"
-                    : ""
-            }">
-                ${taskInput.value}
-            </p>
-        </div>
-        <img class="delete-task" src="./images/icon-cross.svg" alt="remove">
-    `;
+   const newTaskObj = {
+      id: Date.now().toString(),
+      task: taskInput.value,
+      isCompleted
+   };
 
-    infosContainer.insertAdjacentElement("beforebegin", newTask);
-    taskInput.value = "";
-    countItemsLeft()
+   localTasks.push(newTaskObj);
+   localStorage.setItem("tasks", JSON.stringify(localTasks));
+
+   updateTodoList("add");
+
+   taskInput.value = "";
+   countItemsLeft();
 });
 
 todoList.addEventListener("click", (event) => {
-   if((event.target && event.target.matches(".btn-check")) || (event.target && event.target.matches("p"))) {
+   if (
+      (event.target && event.target.matches(".btn-check")) ||
+      (event.target && event.target.matches("p"))
+   ) {
       const buttonCheck = event.target.matches(".btn-check")
          ? event.target
          : event.target.closest("div").querySelector(".btn-check");
-      
+
       const p = buttonCheck.closest("div").querySelector("p");
       completeTask(buttonCheck, p);
       countItemsLeft();
-      
+
       return;
    }
 
-   if(event.target && event.target.matches(".delete-task")) {
-      event.target.closest(".todo").remove()
-      countItemsLeft()
+   if (event.target && event.target.matches(".delete-task")) {
+      event.target.closest(".todo").remove();
+      countItemsLeft();
    }
-})
+});
 
 getAllTasks.addEventListener("click", () => modifyTodoList("all"));
 getActiveTasks.addEventListener("click", () => modifyTodoList("active"));
 getCompletedTasks.addEventListener("click", () => modifyTodoList("completed"));
 
-countItemsLeft()
+window.addEventListener("load", () => loadTasks());
