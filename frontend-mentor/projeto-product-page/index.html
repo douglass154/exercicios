@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="./images/favicon-32x32.png"
+      />
+      <link rel="stylesheet" href="./css/style.css" />
+
+      <title>Product page</title>
+   </head>
+   <body class="mx-auto font-kumbh max-w-[1720px] lg:w-[80%]">
+      <header
+         class="flex justify-between items-center py-5 px-6 lg:border-b-3 lg:border-pale-orange lg:p-0 lg:mb-32"
+      >
+         <div class="flex flex-row-reverse items-centerl lg:gap-12 lg:flex-row">
+            <div class="flex items-center gap-4">
+               <img
+                  id="menu-button"
+                  class="cursor-pointer w-4 z-50 lg:hidden"
+                  src="./images/icon-menu.svg"
+                  alt="menu"
+               />
+               <img
+                  class="w-34 pb-0.5 lg:w-38"
+                  src="./images/logo.svg"
+                  alt="Logo"
+               />
+            </div>
+
+            <div
+               id="nav-background"
+               class="hidden top-0 right-0 bg-black-75 w-full min-h-screen z-30"
+            ></div>
+
+            <nav
+               id="nav-list"
+               class="hidden flex-col absolute w-[70%] max-w-[360px] pl-5 pt-32 top-0 left-0 py-10 z-40 bg-white h-screen lg:flex lg:static lg:flex-row lg:p-0 lg:m-0 lg:h-auto"
+            >
+               <a class="nav-link" href="#"> Collections </a>
+               <a class="nav-link" href="#"> Men </a>
+               <a class="nav-link" href="#"> Women </a>
+               <a class="nav-link" href="#"> About </a>
+               <a class="nav-link" href="#"> Contact </a>
+            </nav>
+         </div>
+
+         <div class="flex items-center gap-7 relative">
+            <div class="cart-icon">
+               <span id="items-in-cart" class="items-in-cart"></span>
+               <img
+                  class="cursor-pointer w-6"
+                  src="./images/icon-cart.svg"
+                  alt="cart"
+               />
+            </div>
+            <img
+               class="w-7 cursor-pointer rounded-full lg:w-12 lg:border-3 lg:border-transparent lg:transition-colors lg:duration-300 lg:hover:border-orange"
+               src="./images/image-avatar.png"
+               alt="Profile Image"
+            />
+         </div>
+      </header>
+
+      <div
+         class="cart hidden absolute shadow-lg shadow-black/40 top-20 left-1/2 -translate-x-1/2 z-20 bg-white w-[95%] min-h-64 rounded-lg lg:w-[380px] lg:left-[80%] lg:z-[100]"
+      >
+         <div class="w-[85%] py-5 mx-auto">
+            <span class="text-very-dark-blue font-700">Cart</span>
+         </div>
+
+         <hr class="text-grayish-blue" />
+
+         <div
+            id="empty-cart-message"
+            class="w-full flex justify-center items-center"
+            style="height: calc(256px - 64px)"
+         >
+            <span class="font-700 text-dark-grayish-blue text-lg"
+               >Your cart is empty.</span
+            >
+         </div>
+
+         <div id="product-in-cart-container" class="hidden flex-col">
+            <!-- Added in js -->
+         </div>
+
+         <a
+            href="./checkout.html"
+            id="button-checkout"
+            class="hidden mx-auto text-center py-4 mb-3 cursor-pointer bg-orange text-very-dark-blue font-700 w-[85%] rounded-lg lg:hover:bg-orange/75 lg:transition-colors lg:duration-300"
+         >
+            Checkout
+         </a>
+      </div>
+
+      <div id="modal-product-image" class="hidden fixed top-0 left-0 w-full h-full z-[110] justify-center items-center bg-black-75">
+         <div class="relative flex flex-col">
+            <img id="close-modal" class="mb-6 w-6 self-end cursor-pointer" src="./images/icon-close.svg" alt="close image">
+            
+            <img
+               id="modal-main-image"
+               class="w-[500px] object-cover rounded-xl aspect-square"
+               src="./images/image-product-1.jpg"
+            />
+
+            <div
+               class="flex justify-between w-full absolute top-1/2 -translate-y-[100%]"
+            >
+               <button id="left-arrow-modal" class="button-product modal-buttons">
+                  <img
+                     class="w-2.5 lg:w-3"
+                     src="./images/icon-previous.svg"
+                     alt="previous"
+                  />
+               </button>
+               <button id="right-arrow-modal" class="button-product modal-buttons">
+                  <img class="w-2.5 lg:w-3" src="./images/icon-next.svg" alt="next" />
+               </button>
+            </div>
+
+            <div class="flex justify-between gap-6 mt-6">
+               <div
+                  class="thumb selected w-22 rounded-md overflow-hidden cursor-pointer"
+               >
+                  <img
+                     src="./images/image-product-1-thumbnail.jpg"
+                     alt="product image 1"
+                  />
+               </div>
+               <div
+                  class="thumb unselected w-22 rounded-md overflow-hidden cursor-pointer"
+               >
+                  <img
+                     src="./images/image-product-2-thumbnail.jpg"
+                     alt="product image 2"
+                  />
+               </div>
+               <div
+                  class="thumb unselected w-22 rounded-md overflow-hidden cursor-pointer"
+               >
+                  <img
+                     src="./images/image-product-3-thumbnail.jpg"
+                     alt="product image 3"
+                  />
+               </div>
+               <div
+                  class="thumb unselected w-22 rounded-md overflow-hidden cursor-pointer"
+               >
+                  <img
+                     src="./images/image-product-4-thumbnail.jpg"
+                     alt="product image 4"
+                  />
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <main class="lg:flex lg:gap-28">
+         <div class="relative">
+            <img
+               id="product-image"
+               class="w-full aspect-[1.2] object-cover lg:rounded-xl lg:aspect-square lg:max-w-[720px] lg:cursor-pointer"
+               src="./images/image-product-1.jpg"
+            />
+            <div
+               class="flex justify-between px-4 w-full absolute top-1/2 -translate-y-1/2"
+            >
+               <button id="main-left-arrow" class="button-product">
+                  <img
+                     class="w-2.5"
+                     src="./images/icon-previous.svg"
+                     alt="previous"
+                  />
+               </button>
+               <button id="main-right-arrow" class="button-product">
+                  <img class="w-2.5" src="./images/icon-next.svg" alt="next" />
+               </button>
+            </div>
+            <div id="main-thumbs-container" class="hidden lg:flex lg:justify-between lg:gap-6 lg:mt-6">
+               <div
+                  class="thumb selected w-22 rounded-md overflow-hidden cursor-pointer"
+               >
+                  <img
+                     id="product-image-thumb"
+                     src="./images/image-product-1-thumbnail.jpg"
+                     alt="product image 1"
+                  />
+               </div>
+               <div
+                  class="thumb unselected w-22 rounded-md overflow-hidden cursor-pointer"
+               >
+                  <img
+                     src="./images/image-product-2-thumbnail.jpg"
+                     alt="product image 2"
+                  />
+               </div>
+               <div
+                  class="thumb unselected w-22 rounded-md overflow-hidden cursor-pointer"
+               >
+                  <img
+                     src="./images/image-product-3-thumbnail.jpg"
+                     alt="product image 3"
+                  />
+               </div>
+               <div
+                  class="thumb unselected w-22 rounded-md overflow-hidden cursor-pointer"
+               >
+                  <img
+                     src="./images/image-product-4-thumbnail.jpg"
+                     alt="product image 4"
+                  />
+               </div>
+            </div>
+         </div>
+
+         <div class="flex flex-col gap-4 w-[90%] mx-auto mt-6 mb-16">
+            <span
+               class="text-sm font-700 uppercase text-dark-grayish-blue tracking-widest"
+               >Sneaker Company</span
+            >
+            <h1
+               id="product-name"
+               class="font-700 text-very-dark-blue leading-10"
+               style="font-size: clamp(1.6rem, 8vw, 2rem)"
+            >
+               Fall Limited Edition Sneakers
+            </h1>
+            <p class="text-dark-grayish-blue leading-7">
+               These low-profile sneakers are your perfect casual wear
+               companion. Featuring a durable rubber outer sole, they’ll
+               withstand everything the weather can offer.
+            </p>
+
+            <div
+               class="flex justify-between items-center lg:flex-col lg:items-start"
+            >
+               <div>
+                  <span id="product-price" class="text-very-dark-blue text-3xl font-700"
+                     >$125.00</span
+                  >
+                  <span
+                     class="bg-very-dark-blue text-white font-700 rounded-md ml-4 py-1 px-3"
+                     >50%</span
+                  >
+               </div>
+               <span class="text-dark-grayish-blue font-700 line-through"
+                  >$250.00</span
+               >
+            </div>
+
+            <div class="flex flex-col lg:flex-row lg:gap-6 lg:items-center">
+               <div
+                  class="flex justify-between items-center bg-light-grayish-blue rounded-md lg:w-[40%] lg:max-w-[156px]"
+               >
+                  <button id="minus" class="p-6 cursor-pointer lg:pl-4">
+                     <img src="./images/icon-minus.svg" alt="minus" />
+                  </button>
+                  <span id="quantity" class="font-700 text-very-dark-blue">0</span>
+                  <button id="plus" class="p-6 cursor-pointer lg:pr-4">
+                     <img src="./images/icon-plus.svg" alt="plus" />
+                  </button>
+               </div>
+               <button
+                  id="add-to-cart"
+                  class="flex w-full justify-center items-center gap-4 cursor-pointer mt-2 h-15 bg-orange rounded-md lg:duration-300 lg:transition-colors lg:hover:bg-orange/75 lg:w-[60%] lg:max-w-[410px] lg:mt-0"
+               >
+                  <img class="w-5" src="./images/icon-cart.svg" alt="cart" />
+                  <span class="text-very-dark-blue font-700">Add to cart</span>
+               </button>
+            </div>
+         </div>
+      </main>
+
+      <script src="./js/script.js"></script>
+   </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <title>Todo app</title>
+</head>
+<body>
+  <div class="background-image">
+    <img src="./images/bg-desktop-dark.jpg">
+  </div>
+
+  <main class="container">
+    <div class="todo-title">
+      <h1>Todo</h1>
+      <img class="theme dark" src="./images/icon-sun.svg" alt="sun">
+    </div>
+
+    <div class="create-task">
+      <button class="btn-check">
+
+      </button>
+      <input type="text" autocomplete="off" id="task-input" placeholder="Create a new todo...">
+    </div>
+
+    <div class="todo-list">
+      <div class="todo">
+        <div>
+          <button class="btn-check checked">
+            <img src="./images/icon-check.svg">
+          </button>
+          <p class="completed">Complete online js course</p>
+        </div>
+        <img class="delete-task" src="./images/icon-cross.svg" alt="remove">
+      </div>
+
+      <div class="todo">
+        <div>
+          <button class="btn-check">
+          </button>
+          <p>Complete online js course</p>
+        </div>
+        <img class="delete-task" src="./images/icon-cross.svg" alt="remove">
+      </div>
+
+      <div class="infos">
+        <p>
+          <span class="items-left">
+            <!-- Add dynamic number -->
+            0
+          </span>
+          items left
+        </p>
+        
+        <div class="states">
+          <button class="get-all-tasks active">All</button>
+          <button class="get-active-tasks">Active</button>
+          <button class="get-completed-tasks">Completed</button>
+        </div>
+      
+        <button class="clear-completed">Clear Completed</button>
+      </div>
+    </div>
+  
+    <span class="notice">Drag and drop to reorder list</span>
+  </main>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

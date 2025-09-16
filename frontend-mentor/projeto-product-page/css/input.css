@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+   /* COLORS */
+   --color-orange: hsl(26, 100%, 55%);
+   --color-pale-orange: hsl(25, 100%, 94%);
+
+   --color-very-dark-blue: hsl(220, 13%, 13%);
+   --color-dark-grayish-blue: hsl(219, 9%, 45%);
+   --color-grayish-blue: hsl(220, 14%, 75%);
+   --color-light-grayish-blue: hsl(223, 64%, 98%);
+   --color-white: hsl(0, 0%, 100%);
+   --color-black-75: hsla(0, 0%, 0%, 75%);
+
+   /* FONT */
+   --font-kumbh: "Kumbh Sans", sans-serif;
+   --font-weight-400: 400;
+   --font-weight-700: 700;
+}
+
+@layer components {
+   .selected {
+      border: 3px solid var(--color-orange);
+      position: relative;
+   }
+
+   .selected::after,
+   .unselected:hover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: white;
+      opacity: 0.6;
+      border-radius: inherit;
+   }
+
+   .unselected {
+      position: relative;
+   }
+}
+
+@layer utilities {
+   .items-in-cart {
+      position: absolute;
+      left: 10px;
+      top: -5px;
+      background-color: var(--color-orange);
+      padding: 0 8px;
+      margin-bottom: 10px;
+      font-size: 10px;
+      color: var(--color-white);
+      font-weight: var(--font-weight-700);
+      border-radius: 50px;
+      pointer-events: none;
+   }
+
+   .nav-link {
+      @apply px-1 font-700 pb-6 text-xl text-very-dark-blue lg:mr-6 lg:py-10 lg:text-dark-grayish-blue lg:border-b-4 lg:border-transparent lg:duration-500 lg:transition-colors lg:hover:border-b-orange lg:hover:text-very-dark-blue lg:font-400;
+   }
+
+   .button-product {
+      @apply cursor-pointer bg-white rounded-full w-10 h-10 flex justify-center items-center lg:w-13 lg:h-13 lg:border-2 lg:border-transparent lg:hover:border-orange;
+   }
+
+   .modal-buttons {
+      display: flex !important;
+   }
+
+   @media (min-width: 1024px) {
+      .items-in-cart {
+         left: 12px;
+         top: 5px;
+      }
+
+      .button-product {
+         display: none;
+      }
+   }
+}
