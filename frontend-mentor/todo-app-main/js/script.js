@@ -20,6 +20,8 @@ let completed = false;
 let itemsLeft = 0;
 
 // Functions
+
+// Ajustar o tema
 const changeIconTheme = (theme) => {
    if (theme == "dark") {
       iconTheme.src = "images/icon-sun.svg";
@@ -31,7 +33,10 @@ const changeIconTheme = (theme) => {
    iconTheme.classList.remove("dark");
 };
 
+// Ajustar o tema
 const changeBackgroundTheme = (theme) => {
+   const buttonCheck = document.querySelectorAll(".btn-check");
+
    if (theme == "dark") {
       backgroundImage.src = "images/bg-desktop-dark.jpg";
       body.classList.remove("light");
@@ -59,22 +64,34 @@ const changeBackgroundTheme = (theme) => {
    });
 };
 
+// Função para completar uma tarefa
 const completeTask = (button, p = null) => {
-   // const localTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+   const localTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+   const todo = button.closest(".todo");
 
-   button.classList.toggle("checked");
-   if (p !== null) p.classList.toggle("completed");
+   localTasks.forEach(localTask => {
+      if(localTask.id === todo.id) {
+         localTask.isCompleted = !localTask.isCompleted;
+         
+         button.classList.toggle("checked");
+         if (p !== null) p.classList.toggle("completed");
+         
+         if (button.classList.contains("checked")) {
+            const img = document.createElement("img");
+            img.src = "./images/icon-check.svg";
+            button.appendChild(img);
+         } else {
+            button.innerHTML = "";
+         }
 
-   if (button.classList.contains("checked")) {
-      const img = document.createElement("img");
-      img.src = "./images/icon-check.svg";
-      button.appendChild(img);
-      return;
-   }
+      }
+   })
 
-   button.innerHTML = "";
+   localStorage.setItem("tasks", JSON.stringify(localTasks));
+   countItemsLeft();
 };
 
+// Função para contar itens restantes
 const countItemsLeft = () => {
    const buttonCheck = todoList.querySelectorAll(".btn-check");
    let itemsLeft = 0;
@@ -85,6 +102,19 @@ const countItemsLeft = () => {
 
    textItemsLeft.textContent = itemsLeft;
 };
+
+const deleteTask = (task) => {
+   const localTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+   const todo = task.closest(".todo")
+   console.log(localTasks)
+
+   localTasks.forEach(localTask => {
+      if(localTask.id === todo.id) {
+         todo.remove();
+         countItemsLeft();
+      }
+   })
+}
 
 const addActiveClass = (mode) => {
    if (mode === "all") {
@@ -116,15 +146,17 @@ const modifyTodoList = (mode) => {
    });
 };
 
+// Adicionando nova tarefa à lista
 const addTaskToTodoList = (localTasks) => {
    const newTaskObj = localTasks[localTasks.length - 1];
 
    const newTask = document.createElement("div");
    newTask.classList.add("todo");
+   newTask.id = newTaskObj.id;
 
    newTask.innerHTML = `
       <div>
-         <button id="${newTaskObj.id}" class="btn-check ${newTaskObj.isCompleted ? "checked" : ""}">
+         <button class="btn-check ${newTaskObj.isCompleted ? "checked" : ""}">
             ${newTaskObj.isCompleted
                ? '<img src="./images/icon-check.svg">'
                : ""
@@ -140,12 +172,14 @@ const addTaskToTodoList = (localTasks) => {
    infosContainer.insertAdjacentElement("beforebegin", newTask);
 }
 
+// Carregar as tarefas do localStorage
 const loadTasks = () => {
    const localTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
    localTasks.forEach(localTask => {
       const newTask = document.createElement("div");
       newTask.classList.add("todo");
+      newTask.id = localTask.id;
 
       newTask.innerHTML = `
          <div>
@@ -193,6 +227,7 @@ inputButtonCheck.addEventListener("click", () =>
 taskInput.addEventListener("keypress", (event) => {
    const key = event.key;
    if (key !== "Enter") return;
+   if(taskInput.value === "") return;
 
    const isCompleted = inputButtonCheck.classList.contains("checked") ? true : false;
    let localTasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -223,14 +258,11 @@ todoList.addEventListener("click", (event) => {
 
       const p = buttonCheck.closest("div").querySelector("p");
       completeTask(buttonCheck, p);
-      countItemsLeft();
-
       return;
    }
 
    if (event.target && event.target.matches(".delete-task")) {
-      event.target.closest(".todo").remove();
-      countItemsLeft();
+      deleteTask(event.target);
    }
 });
 
