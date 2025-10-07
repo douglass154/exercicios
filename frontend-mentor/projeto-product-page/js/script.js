@@ -48,45 +48,103 @@ const navBackground = document.querySelector("#nav-background");
 
 
 // Functions
-const addNewProductInCart = totalPrice => {
-   const div = document.createElement("div");
-   div.classList.add(
-      "flex",
-      "items-center",
-      "gap-4",
-      "w-[85%]",
-      "my-5.5",
-      "mx-auto"
-   );
+const addNewProductInCart = () => {
+   if(quantity === 0) return;
 
-   div.innerHTML = `
-      <img
-         class="w-12 rounded-md"
-         src="${productImageThumb}"
-      />
-      <div>
-         <p class="text-dark-grayish-blue">
-            ${productName.textContent}
-         </p>
-         <div>
-            <span class="text-dark-grayish-blue">$${productPrice.toFixed(
-               2
-            )} x</span>
-            <span class="quantity-in-cart text-dark-grayish-blue" data-quantity="${quantity}">${quantity}</span>
-            <span class="font-700 text-very-dark-blue ml-2">$${totalPrice.toFixed(
-               2
-            )}</span>
-         </div>
-      </div>
-      <img
-         class="trash cursor-pointer"
-         src="./images/icon-delete.svg"
-         alt="trash"
-      />
-   `;
+   let totalPrice = quantity * productPrice;
 
-   productInCartContainer.appendChild(div);
+   const product = {
+      id: Date.now().toString(),
+      name: productName.textContent.trim(),
+      price: productPrice,
+      totalPrice,
+      quantity,
+      image: productImageThumb
+   };
+
+   const cart = JSON.parse(localStorage.getItem("cart")) || [];
+   cart.push(product);
+
+   localStorage.setItem("cart", JSON.stringify(cart));
+
+   updateCartDisplay();
+
+   
 };
+
+const updateCartDisplay = () => {
+   const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+   if(cart.length === 0) {
+      emptyCartMessage.classList.remove("hidden");
+      emptyCartMessage.classList.add("flex");
+
+      productInCartContainer.classList.add("hidden");
+      buttonCheckout.classList.add("hidden");
+      return;
+   }
+
+   emptyCartMessage.classList.remove("flex");
+   emptyCartMessage.classList.add("hidden");
+
+   productInCartContainer.classList.remove("hidden");
+   productInCartContainer.classList.add("flex");
+
+   buttonCheckout.classList.remove("hidden");
+   buttonCheckout.classList.add("block");
+
+   productInCartContainer.innerHTML = "";
+
+   let totalItemsInCart = 0;
+   let totalPriceInCart = 0;
+
+   cart.forEach(item => {
+      const div = document.createElement("div");
+      div.classList.add(
+         "flex",
+         "items-center",
+         "gap-4",
+         "w-[85%]",
+         "my-5.5",
+         "mx-auto"
+      );
+      div.setAttribute("data-id", item.id);
+
+      div.innerHTML = `
+         <img
+            class="w-12 rounded-md"
+            src="${item.image}"
+            alt="${item.name}"
+         />
+         <div>
+            <p class="text-dark-grayish-blue">
+               ${item.name}
+            </p>
+            <div>
+               <span class="text-dark-grayish-blue">$${item.price.toFixed(
+                  2
+               )} x</span>
+               <span class="quantity-in-cart text-dark-grayish-blue">${item.quantity}</span>
+               <span class="font-700 text-very-dark-blue ml-2">$${item.totalPrice.toFixed(
+                  2
+               )}</span>
+            </div>
+         </div>
+         <img
+            class="trash cursor-pointer"
+            src="./images/icon-delete.svg"
+            alt="trash"
+         />
+      `;
+
+      productInCartContainer.appendChild(div);
+
+      totalItemsInCart += item.quantity;
+      totalPriceInCart += item.totalPrice;
+   })
+
+   itemsInCart.textContent = totalItemsInCart;
+}
 
 const closeModal = () => {
    modal.classList.remove("flex");
@@ -147,38 +205,7 @@ const closeMenu = () => {
 };
 
 // Events
-buttonAddToCart?.addEventListener("click", () => {
-   if (quantity === 0) return;
-
-   let totalPrice = quantity * productPrice;
-
-   emptyCartMessage.classList.remove("flex");
-   emptyCartMessage.classList.add("hidden");
-
-   productInCartContainer.classList.remove("hidden");
-   productInCartContainer.classList.add("flex");
-
-   buttonCheckout.classList.remove("hidden");
-   buttonCheckout.classList.add("block");
-
-   addNewProductInCart(totalPrice);
-
-   const quantityItemsInCart = productInCartContainer
-      .closest("div")
-      .querySelectorAll("[data-quantity]");
-
-   quantityItemsInCart.forEach(item => {
-      totalItemsInCart += Number(item.dataset.quantity);
-   });
-
-   quantity = 0;
-   totalPrice = 0;
-
-   quantityText.textContent = quantity;
-   itemsInCart.textContent = totalItemsInCart;
-
-   totalItemsInCart = 0;
-});
+buttonAddToCart?.addEventListener("click", addNewProductInCart);
 
 buttonPlus?.addEventListener("click", () => {
    quantity++;
@@ -199,13 +226,19 @@ productInCartContainer?.addEventListener("click", event => {
       const item = event.target.closest("div.flex.items-center");
 
       if (item) {
-         const itemQuantity = Number(
-            item.querySelector(".quantity-in-cart").textContent
-         );
-         itemsInCart.textContent =
-            Number(itemsInCart.textContent) - itemQuantity;
+         const productId = item.dataset.id;
+         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+         cart.filter(product => product.id !== productId);
+
+         localStorage.setItem("cart", JSON.stringify("cart"));
 
          item.remove();
+
+         if(productInCartContainer.children.length === 0) {
+            emptyCartMessage.classList.remove("hidden");
+            emptyCartMessage.classList.add("flex");
+            productInCartContainer.classList.remove("flex");
+         }
       }
 
       if (productInCartContainer.children.length === 0) {
@@ -293,6 +326,7 @@ navList?.querySelectorAll(".nav-link").forEach(link => {
 
 navBackground?.addEventListener("click", closeMenu);
 
+document.addEventListener("DOMContentLoaded", () => updateCartDisplay());
 
 // CHECKOUT'S EVENTS
 
